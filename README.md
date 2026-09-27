@@ -1,16 +1,15 @@
 ## Hi there 👋
 
-<!--
-**LucioZampella/LucioZampella** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+##### I am Lucio and I am passionate about technology, hard sciences, and problem-solving. That's why I'm studying Computer Engineering at Universidad Austral, while also working as a Designer with tools like Photoshop.
 
-Here are some ideas to get you started:
+<p align="center">
+  <a href="https://github.com/LucioZampella">
+    <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=LucioZampella&show_icons=true&theme=dark&include_all_commits=true&count_private=true"/>
+</a>
+</p>
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+<p align="center">
+<a href="https://github.com/LucioZampella">
+  <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=LucioZampella&layout=compact&theme=dark"/>
+</a>
+</p>
