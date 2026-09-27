@@ -1,6 +1,6 @@
 ## Hi there 👋
 
-##### I am Lucio and I am passionate about technology, hard sciences, and problem-solving. That's why I'm studying Computer Engineering at Universidad Austral, while also working as a Designer with tools like Photoshop.
+#### I am Lucio and I am passionate about technology, hard sciences, and problem-solving. That's why I'm studying Computer Engineering at Universidad Austral, while also working as a Designer with tools like Photoshop.
 
 <p align="center">
   <a href="https://github.com/LucioZampella">
