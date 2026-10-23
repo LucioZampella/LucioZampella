@@ -1,4 +1,4 @@
-name: Update profile metrics
+name: Update language chart
 
 on:
   schedule:
@@ -9,23 +9,25 @@ permissions:
   contents: write
 
 jobs:
-  metrics:
+  languages:
     runs-on: ubuntu-latest
     steps:
-      - name: Generate GitHub profile metrics
-        uses: lowlighter/metrics@latest
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          user: LucioZampella
-          filename: assets/github-metrics.svg
-          base: header, activity, community, repositories, metadata
-          base_indepth: yes
-          config_theme: github-dark
-          config_timezone: America/Argentina/Buenos_Aires
-          plugin_languages: yes
-          plugin_languages_sections: most-used
-          plugin_languages_limit: 10
-          plugin_languages_details: bytes-size, percentage
-          plugin_languages_indepth: yes
-          plugin_languages_analysis_timeout: 15
-          plugin_languages_ignored: html, css, tex, less, dockerfile, makefile, qmake, lex, cmake, shell, gnuplot
+          node-version: 22
+
+      - name: Build language chart from GitHub repository data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: LucioZampella
+        run: node scripts/generate-language-chart.mjs
+
+      - name: Commit refreshed chart
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/github-languages.svg assets/github-overview.svg
+          git diff --cached --quiet || git commit -m "chore: update profile charts [skip ci]"
+          git push

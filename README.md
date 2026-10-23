@@ -18,17 +18,26 @@
 
 ## About me
 
-I am Lucio, a Computer Engineering student at **Universidad Austral** and a designer who works with tools such as **Photoshop**. I enjoy turning daily problems into clear, useful, and well-crafted solutions.
+I am Lucio, a Computer Engineering student at **Universidad Austral** and a designer who works with tools such as **Photoshop**. I enjoy turning complex problems into clear, useful, and well-crafted solutions.
 
 My interests span software, technology, hard sciences, and the point where engineering meets visual communication.
 
-## GitHub snapshot
+<div align="center">
+  <img width="100%" src="./assets/github-overview.svg" alt="GitHub overview for Lucio Zampella" />
+</div>
+
+<br />
 
 <div align="center">
-  <img src="./assets/github-metrics.svg" alt="Live GitHub activity and top 10 programming languages :)" />
+  <img width="100%" src="./assets/github-languages.svg" alt="Top 10 programming languages used by Lucio Zampella" />
 </div>
 
 <div align="center">
-  <sub>Updated daily from GitHub by this repository's own workflow</sub>
+  <sub>Updated daily from your public GitHub repositories · ranking reflects repository composition, not proficiency.</sub>
 </div>
 
+---
+
+<div align="center">
+  <i>Design with intent. Engineer with curiosity.</i>
+</div>

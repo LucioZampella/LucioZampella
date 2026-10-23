@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="450" viewBox="0 0 900 450" role="img" aria-labelledby="title description">
+  <title id="title">Top 10 programming languages</title>
+  <desc id="description">Language composition across 8 public non-fork repositories owned by LucioZampella.</desc>
+  <style>
+    .title { font: 700 25px Arial, sans-serif; fill: #97FF5B; }
+    .subtitle { font: 14px Arial, sans-serif; fill: #E4E4E4; opacity: .75; }
+    .label { font: 600 14px Arial, sans-serif; fill: #E4E4E4; }
+    .value { font: 12px Arial, sans-serif; fill: #E4E4E4; opacity: .82; text-anchor: end; }
+    .track { fill: #5a5a5a; }
+  </style>
+  <rect width="900" height="450" rx="18" fill="#444444"/>
+  <text x="38" y="52" class="title">TOP 10 PROGRAMMING LANGUAGES</text>
+  <text x="38" y="78" class="subtitle">Based on language bytes across 8 public repositories · refreshed daily</text>
+  <text x="38" y="127" class="label">JavaScript</text>
+  <rect x="215" y="112" width="465" height="18" rx="9" class="track"/>
+  <rect x="215" y="112" width="465" height="18" rx="9" fill="#97FF5B"/>
+  <text x="700" y="127" class="value">45.6% · 276.2 KB</text>
+  <text x="38" y="158" class="label">Java</text>
+  <rect x="215" y="143" width="465" height="18" rx="9" class="track"/>
+  <rect x="215" y="143" width="323" height="18" rx="9" fill="#b5ff8a"/>
+  <text x="700" y="158" class="value">31.7% · 191.6 KB</text>
+  <text x="38" y="189" class="label">Python</text>
+  <rect x="215" y="174" width="465" height="18" rx="9" class="track"/>
+  <rect x="215" y="174" width="100" height="18" rx="9" fill="#d5ffba"/>
+  <text x="700" y="189" class="value">9.8% · 59.4 KB</text>
+  <text x="38" y="220" class="label">C++</text>
+  <rect x="215" y="205" width="465" height="18" rx="9" class="track"/>
+  <rect x="215" y="205" width="45" height="18" rx="9" fill="#e4e4e4"/>
+  <text x="700" y="220" class="value">4.4% · 26.8 KB</text>
+  <text x="38" y="251" class="label">CMake</text>
+  <rect x="215" y="236" width="465" height="18" rx="9" class="track"/>
+  <rect x="215" y="236" width="33" height="18" rx="9" fill="#9ca3a0"/>
+  <text x="700" y="251" class="value">3.2% · 19.3 KB</text>
+  <text x="38" y="282" class="label">Dart</text>
+  <rect x="215" y="267" width="465" height="18" rx="9" class="track"/>
+  <rect x="215" y="267" width="30" height="18" rx="9" fill="#7a817d"/>
+  <text x="700" y="282" class="value">3.0% · 18.1 KB</text>
+  <text x="38" y="313" class="label">HTML</text>
+  <rect x="215" y="298" width="465" height="18" rx="9" class="track"/>
+  <rect x="215" y="298" width="12" height="18" rx="9" fill="#64706a"/>
+  <text x="700" y="313" class="value">1.2% · 7.3 KB</text>
+  <text x="38" y="344" class="label">TypeScript</text>
+  <rect x="215" y="329" width="465" height="18" rx="9" class="track"/>
+  <rect x="215" y="329" width="5" height="18" rx="9" fill="#4f5d55"/>
+  <text x="700" y="344" class="value">0.5% · 2.7 KB</text>
+  <text x="38" y="375" class="label">Swift</text>
+  <rect x="215" y="360" width="465" height="18" rx="9" class="track"/>
+  <rect x="215" y="360" width="3" height="18" rx="9" fill="#3d4a42"/>
+  <text x="700" y="375" class="value">0.3% · 2.0 KB</text>
+  <text x="38" y="406" class="label">C</text>
+  <rect x="215" y="391" width="465" height="18" rx="9" class="track"/>
+  <rect x="215" y="391" width="2" height="18" rx="9" fill="#2e3933"/>
+  <text x="700" y="406" class="value">0.2% · 1.5 KB</text>
+</svg>
