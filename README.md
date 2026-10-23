@@ -33,11 +33,11 @@ My interests span software, technology, hard sciences, and the point where engin
 </div>
 
 <div align="center">
-  <sub>Updated daily from your public GitHub repositories</sub>
+  <sub>Updated daily from your public and private repositories · only aggregated language data is shown.</sub>
 </div>
 
 <div align="center">
-  <sub><a href="./assets/language-data.json">View the source data by repository</a></sub>
+  <sub><a href="./assets/language-data.json">View the aggregate source data</a></sub>
 </div>
 
 ---

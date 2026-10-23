@@ -2,7 +2,11 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname } from "node:path";
 
 const username = process.env.GITHUB_USERNAME || "LucioZampella";
-const token = process.env.PROFILE_STATS_TOKEN || process.env.GITHUB_TOKEN;
+const profileToken = process.env.PROFILE_STATS_TOKEN;
+const token = profileToken || process.env.GITHUB_TOKEN;
+if (!profileToken) {
+  throw new Error("PROFILE_STATS_TOKEN is required to build language statistics across private and public repositories.");
+}
 const headers = {
   Accept: "application/vnd.github+json",
   "Content-Type": "application/json",
@@ -24,7 +28,7 @@ async function github(path) {
 async function allRepositories() {
   const repositories = [];
   for (let page = 1; ; page += 1) {
-    const batch = await github(`/users/${encodeURIComponent(username)}/repos?type=owner&sort=updated&per_page=100&page=${page}`);
+    const batch = await github(`/user/repos?affiliation=owner,collaborator,organization_member&visibility=all&sort=updated&per_page=100&page=${page}`);
     repositories.push(...batch);
     if (batch.length < 100) return repositories;
   }
@@ -67,14 +71,14 @@ async function contributionStats() {
 }
 
 const repositories = (await allRepositories()).filter((repo) => !repo.fork && !repo.archived);
+const publicRepositories = repositories.filter((repo) => !repo.private);
 const languages = new Map();
 
-const languageSources = await Promise.all(repositories.map(async (repo) => {
-  const data = await github(`/repos/${encodeURIComponent(username)}/${encodeURIComponent(repo.name)}/languages`);
+await Promise.all(repositories.map(async (repo) => {
+  const data = await github(`/repos/${encodeURIComponent(repo.owner.login)}/${encodeURIComponent(repo.name)}/languages`);
   for (const [language, bytes] of Object.entries(data)) {
     languages.set(language, (languages.get(language) || 0) + bytes);
   }
-  return { name: repo.name, url: repo.html_url, languages: data };
 }));
 const contributions = await contributionStats();
 
@@ -91,7 +95,7 @@ const rows = top.map(([language, bytes], index) => {
 
 const languagesSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="450" viewBox="0 0 900 450" role="img" aria-labelledby="title description">
   <title id="title">Top 10 programming languages</title>
-  <desc id="description">Language composition across ${repositories.length} public non-fork repositories owned by ${escapeXml(username)}.</desc>
+  <desc id="description">Language composition across private and public repositories accessible to ${escapeXml(username)}. Repository names and source code are not published.</desc>
   <style>
     .title { font: 700 25px Arial, sans-serif; fill: #97FF5B; }
     .subtitle { font: 14px Arial, sans-serif; fill: #E4E4E4; opacity: .75; }
@@ -101,11 +105,11 @@ const languagesSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height
   </style>
   <rect width="900" height="450" rx="18" fill="#444444"/>
   <text x="38" y="52" class="title">TOP 10 PROGRAMMING LANGUAGES</text>
-  <text x="38" y="78" class="subtitle">Based on language bytes across ${repositories.length} public repositories · refreshed daily</text>${rows}
+  <text x="38" y="78" class="subtitle">Based on private + public repository bytes · refreshed daily</text>${rows}
 </svg>`;
 
-const stars = repositories.reduce((sum, repository) => sum + repository.stargazers_count, 0);
-const forks = repositories.reduce((sum, repository) => sum + repository.forks_count, 0);
+const stars = publicRepositories.reduce((sum, repository) => sum + repository.stargazers_count, 0);
+const forks = publicRepositories.reduce((sum, repository) => sum + repository.forks_count, 0);
 const updated = new Date().toISOString().slice(0, 10);
 const overviewSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="245" viewBox="0 0 900 245" role="img" aria-labelledby="title description">
   <title id="title">GitHub profile overview</title>
@@ -125,9 +129,9 @@ const overviewSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height=
   <rect x="372" y="108" width="156" height="103" rx="12" fill="#515151"/>
   <rect x="539" y="108" width="156" height="103" rx="12" fill="#515151"/>
   <rect x="706" y="108" width="156" height="103" rx="12" fill="#515151"/>
-  <text x="58" y="153" class="metric">${repositories.length}</text><text x="58" y="181" class="label">REPOSITORIES</text>
+  <text x="58" y="153" class="metric">${publicRepositories.length}</text><text x="58" y="181" class="label">PUBLIC REPOS</text>
   <text x="225" y="153" class="metric">${contributions.contributionCalendar.totalContributions}</text><text x="225" y="181" class="label">CONTRIBUTIONS · 1Y</text>
-  <text x="392" y="153" class="metric">${languages.size}</text><text x="392" y="181" class="label">LANGUAGES</text>
+  <text x="392" y="153" class="metric">${languages.size}</text><text x="392" y="181" class="label">LANGUAGES · ALL</text>
   <text x="559" y="153" class="metric">${stars}</text><text x="559" y="181" class="label">STARS</text>
   <text x="726" y="153" class="metric">${forks}</text><text x="726" y="181" class="label">FORKS</text>
 </svg>`;
@@ -138,11 +142,12 @@ writeFileSync("assets/github-overview.svg", overviewSvg);
 writeFileSync("assets/language-data.json", `${JSON.stringify({
   generatedAt: new Date().toISOString(),
   username,
-  scope: "Public repositories owned by the user; forks and archived repositories are excluded.",
+  scope: "Private and public repositories accessible to the token; forks and archived repositories are excluded. Repository names and source code are intentionally omitted.",
+  repositoriesAnalyzed: repositories.length,
+  publicRepositoriesAnalyzed: publicRepositories.length,
   contributionsLastYear: {
     total: contributions.contributionCalendar.totalContributions,
     commits: contributions.totalCommitContributions,
   },
   totals: Object.fromEntries([...languages.entries()].sort((a, b) => b[1] - a[1])),
-  repositories: languageSources,
 }, null, 2)}\n`);
