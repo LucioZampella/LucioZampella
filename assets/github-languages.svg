@@ -14,14 +14,14 @@
   <text x="38" y="127" class="label">JavaScript</text>
   <rect x="215" y="112" width="465" height="18" rx="9" class="track"/>
   <rect x="215" y="112" width="465" height="18" rx="9" fill="#97FF5B"/>
-  <text x="700" y="127" class="value">46.1% · 281.7 KB</text>
+  <text x="700" y="127" class="value">46.3% · 283.8 KB</text>
   <text x="38" y="158" class="label">Java</text>
   <rect x="215" y="143" width="465" height="18" rx="9" class="track"/>
-  <rect x="215" y="143" width="316" height="18" rx="9" fill="#b5ff8a"/>
-  <text x="700" y="158" class="value">31.4% · 191.6 KB</text>
+  <rect x="215" y="143" width="314" height="18" rx="9" fill="#b5ff8a"/>
+  <text x="700" y="158" class="value">31.3% · 191.6 KB</text>
   <text x="38" y="189" class="label">Python</text>
   <rect x="215" y="174" width="465" height="18" rx="9" class="track"/>
-  <rect x="215" y="174" width="98" height="18" rx="9" fill="#d5ffba"/>
+  <rect x="215" y="174" width="97" height="18" rx="9" fill="#d5ffba"/>
   <text x="700" y="189" class="value">9.7% · 59.4 KB</text>
   <text x="38" y="220" class="label">C++</text>
   <rect x="215" y="205" width="465" height="18" rx="9" class="track"/>
@@ -41,7 +41,7 @@
   <text x="700" y="313" class="value">1.2% · 7.3 KB</text>
   <text x="38" y="344" class="label">TypeScript</text>
   <rect x="215" y="329" width="465" height="18" rx="9" class="track"/>
-  <rect x="215" y="329" width="5" height="18" rx="9" fill="#4f5d55"/>
+  <rect x="215" y="329" width="4" height="18" rx="9" fill="#4f5d55"/>
   <text x="700" y="344" class="value">0.4% · 2.7 KB</text>
   <text x="38" y="375" class="label">Swift</text>
   <rect x="215" y="360" width="465" height="18" rx="9" class="track"/>

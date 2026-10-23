@@ -1,9 +1,13 @@
 {
-  "generatedAt": "2026-10-23T13:40:39.464Z",
+  "generatedAt": "2026-10-23T13:59:24.835Z",
   "username": "LucioZampella",
   "scope": "Public repositories owned by the user; forks and archived repositories are excluded.",
+  "contributionsLastYear": {
+    "total": 911,
+    "commits": 636
+  },
   "totals": {
-    "JavaScript": 288475,
+    "JavaScript": 290565,
     "Java": 196234,
     "Python": 60802,
     "C++": 27451,
@@ -22,7 +26,7 @@
       "name": "LucioZampella",
       "url": "https://github.com/LucioZampella/LucioZampella",
       "languages": {
-        "JavaScript": 5635
+        "JavaScript": 7725
       }
     },
     {
