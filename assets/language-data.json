@@ -1,92 +1,34 @@
 {
-  "generatedAt": "2026-10-23T14:03:53.506Z",
+  "generatedAt": "2026-10-23T14:11:24.342Z",
   "username": "LucioZampella",
-  "scope": "Public repositories owned by the user; forks and archived repositories are excluded.",
+  "scope": "Private and public repositories accessible to the token; forks and archived repositories are excluded. Repository names and source code are intentionally omitted.",
+  "repositoriesAnalyzed": 38,
+  "publicRepositoriesAnalyzed": 21,
   "contributionsLastYear": {
-    "total": 911,
-    "commits": 726
+    "total": 912,
+    "commits": 727
   },
   "totals": {
-    "JavaScript": 290565,
-    "Java": 196234,
-    "Python": 60802,
-    "C++": 27451,
-    "CMake": 19776,
-    "Dart": 18535,
-    "HTML": 7429,
-    "TypeScript": 2805,
-    "Swift": 2036,
-    "C": 1488,
-    "CSS": 352,
-    "Kotlin": 137,
-    "Objective-C": 38
-  },
-  "repositories": [
-    {
-      "name": "LucioZampella",
-      "url": "https://github.com/LucioZampella/LucioZampella",
-      "languages": {
-        "JavaScript": 7725
-      }
-    },
-    {
-      "name": "Los-Grand-Schmidt-Tool",
-      "url": "https://github.com/LucioZampella/Los-Grand-Schmidt-Tool",
-      "languages": {
-        "Java": 18504,
-        "HTML": 5518,
-        "JavaScript": 1258
-      }
-    },
-    {
-      "name": "frontend-capacitation-flutter-android-app",
-      "url": "https://github.com/LucioZampella/frontend-capacitation-flutter-android-app",
-      "languages": {
-        "C++": 25212,
-        "CMake": 19776,
-        "Dart": 18535,
-        "Swift": 2036,
-        "HTML": 1551,
-        "C": 1488,
-        "Kotlin": 137,
-        "Objective-C": 38
-      }
-    },
-    {
-      "name": "backend-capacitation-api-rest-prisma-postgres",
-      "url": "https://github.com/LucioZampella/backend-capacitation-api-rest-prisma-postgres",
-      "languages": {
-        "TypeScript": 2805
-      }
-    },
-    {
-      "name": "Opet-Virtual-Wardrobe",
-      "url": "https://github.com/LucioZampella/Opet-Virtual-Wardrobe",
-      "languages": {
-        "JavaScript": 281582,
-        "Java": 177730,
-        "HTML": 360,
-        "CSS": 352
-      }
-    },
-    {
-      "name": "F1Emulator",
-      "url": "https://github.com/LucioZampella/F1Emulator",
-      "languages": {
-        "Python": 60802
-      }
-    },
-    {
-      "name": "pointsSystem",
-      "url": "https://github.com/LucioZampella/pointsSystem",
-      "languages": {}
-    },
-    {
-      "name": "PulsoraEI",
-      "url": "https://github.com/LucioZampella/PulsoraEI",
-      "languages": {
-        "C++": 2239
-      }
-    }
-  ]
+    "Jupyter Notebook": 19482094,
+    "Dart": 1420661,
+    "TypeScript": 811257,
+    "GDScript": 746397,
+    "JavaScript": 615252,
+    "HTML": 614133,
+    "Java": 572772,
+    "Kotlin": 332719,
+    "Python": 116769,
+    "EJS": 81236,
+    "C++": 54756,
+    "CMake": 40127,
+    "Go": 35780,
+    "Shell": 25573,
+    "CSS": 18790,
+    "Swift": 4524,
+    "C": 3013,
+    "Dockerfile": 2185,
+    "PLpgSQL": 1635,
+    "PostScript": 763,
+    "Objective-C": 77
+  }
 }
