@@ -91,12 +91,15 @@ const chartLanguages = [...languages.entries()].filter(([language]) => !excluded
 const top = chartLanguages.sort((a, b) => b[1] - a[1]).slice(0, 10);
 const total = chartLanguages.reduce((sum, [, bytes]) => sum + bytes, 0);
 const max = top[0]?.[1] || 1;
+const barX = 230;
+const barWidth = 430;
+const valueX = 690;
 const colors = ["#97FF5B", "#b5ff8a", "#d5ffba", "#e4e4e4", "#9ca3a0", "#7a817d", "#64706a", "#4f5d55", "#3d4a42", "#2e3933"];
 const rows = top.map(([language, bytes], index) => {
   const y = 112 + index * 31;
-  const width = Math.round((bytes / max) * 465);
+  const width = Math.round((bytes / max) * barWidth);
   const percentage = total ? ((bytes / total) * 100).toFixed(1) : "0.0";
-  return `\n  <text x="38" y="${y + 15}" class="label">${escapeXml(language)}</text>\n  <rect x="215" y="${y}" width="465" height="18" rx="9" class="track"/>\n  <rect x="215" y="${y}" width="${width}" height="18" rx="9" fill="${colors[index]}"/>\n  <text x="700" y="${y + 15}" class="value">${percentage}% · ${formatBytes(bytes)}</text>`;
+  return `\n  <text x="38" y="${y + 15}" class="label">${escapeXml(language)}</text>\n  <rect x="${barX}" y="${y}" width="${barWidth}" height="18" rx="9" class="track"/>\n  <rect x="${barX}" y="${y}" width="${width}" height="18" rx="9" fill="${colors[index]}"/>\n  <text x="${valueX}" y="${y + 15}" class="value">${percentage}% · ${formatBytes(bytes)}</text>`;
 }).join("");
 
 const languagesSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="450" viewBox="0 0 900 450" role="img" aria-labelledby="title description">
@@ -106,7 +109,7 @@ const languagesSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height
     .title { font: 700 25px Arial, sans-serif; fill: #97FF5B; }
     .subtitle { font: 14px Arial, sans-serif; fill: #E4E4E4; opacity: .75; }
     .label { font: 600 14px Arial, sans-serif; fill: #E4E4E4; }
-    .value { font: 12px Arial, sans-serif; fill: #E4E4E4; opacity: .82; text-anchor: end; }
+    .value { font: 12px Arial, sans-serif; fill: #E4E4E4; opacity: .82; text-anchor: start; }
     .track { fill: #5a5a5a; }
   </style>
   <rect width="900" height="450" rx="18" fill="#444444"/>
