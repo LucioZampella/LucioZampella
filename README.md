@@ -33,7 +33,7 @@ My interests span software, technology, hard sciences, and the point where engin
 </div>
 
 <div align="center">
-  <sub>Updated daily from your public GitHub repositories · ranking reflects repository composition, not proficiency.</sub>
+  <sub>Updated daily from your public GitHub repositories</sub>
 </div>
 
 <div align="center">
