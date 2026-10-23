@@ -73,6 +73,11 @@ async function contributionStats() {
 const repositories = (await allRepositories()).filter((repo) => !repo.fork && !repo.archived);
 const publicRepositories = repositories.filter((repo) => !repo.private);
 const languages = new Map();
+const excludedLanguages = new Set([
+  "Jupyter Notebook", "GDScript", "HTML", "CSS", "SCSS", "Sass", "Less",
+  "CMake", "Makefile", "Dockerfile", "Shell", "PowerShell", "Batchfile",
+  "TeX", "Markdown", "JSON", "YAML", "XML", "SVG", "Roff", "HCL",
+]);
 
 await Promise.all(repositories.map(async (repo) => {
   const data = await github(`/repos/${encodeURIComponent(repo.owner.login)}/${encodeURIComponent(repo.name)}/languages`);
@@ -82,8 +87,9 @@ await Promise.all(repositories.map(async (repo) => {
 }));
 const contributions = await contributionStats();
 
-const top = [...languages.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10);
-const total = [...languages.values()].reduce((sum, bytes) => sum + bytes, 0);
+const chartLanguages = [...languages.entries()].filter(([language]) => !excludedLanguages.has(language));
+const top = chartLanguages.sort((a, b) => b[1] - a[1]).slice(0, 10);
+const total = chartLanguages.reduce((sum, [, bytes]) => sum + bytes, 0);
 const max = top[0]?.[1] || 1;
 const colors = ["#97FF5B", "#b5ff8a", "#d5ffba", "#e4e4e4", "#9ca3a0", "#7a817d", "#64706a", "#4f5d55", "#3d4a42", "#2e3933"];
 const rows = top.map(([language, bytes], index) => {
@@ -95,7 +101,7 @@ const rows = top.map(([language, bytes], index) => {
 
 const languagesSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="450" viewBox="0 0 900 450" role="img" aria-labelledby="title description">
   <title id="title">Top 10 programming languages</title>
-  <desc id="description">Language composition across private and public repositories accessible to ${escapeXml(username)}. Repository names and source code are not published.</desc>
+  <desc id="description">Programming-language composition across private and public repositories accessible to ${escapeXml(username)}. Notebooks, engine scripts, markup, styles and configuration languages are excluded.</desc>
   <style>
     .title { font: 700 25px Arial, sans-serif; fill: #97FF5B; }
     .subtitle { font: 14px Arial, sans-serif; fill: #E4E4E4; opacity: .75; }
@@ -105,7 +111,7 @@ const languagesSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height
   </style>
   <rect width="900" height="450" rx="18" fill="#444444"/>
   <text x="38" y="52" class="title">TOP 10 PROGRAMMING LANGUAGES</text>
-  <text x="38" y="78" class="subtitle">Based on private + public repository bytes · refreshed daily</text>${rows}
+  <text x="38" y="78" class="subtitle">Private + public application code · refreshed daily</text>${rows}
 </svg>`;
 
 const stars = publicRepositories.reduce((sum, repository) => sum + repository.stargazers_count, 0);
@@ -131,7 +137,7 @@ const overviewSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height=
   <rect x="706" y="108" width="156" height="103" rx="12" fill="#515151"/>
   <text x="58" y="153" class="metric">${publicRepositories.length}</text><text x="58" y="181" class="label">PUBLIC REPOS</text>
   <text x="225" y="153" class="metric">${contributions.contributionCalendar.totalContributions}</text><text x="225" y="181" class="label">CONTRIBUTIONS · 1Y</text>
-  <text x="392" y="153" class="metric">${languages.size}</text><text x="392" y="181" class="label">LANGUAGES · ALL</text>
+  <text x="392" y="153" class="metric">${chartLanguages.length}</text><text x="392" y="181" class="label">LANGUAGES · CODE</text>
   <text x="559" y="153" class="metric">${stars}</text><text x="559" y="181" class="label">STARS</text>
   <text x="726" y="153" class="metric">${forks}</text><text x="726" y="181" class="label">FORKS</text>
 </svg>`;
@@ -145,9 +151,11 @@ writeFileSync("assets/language-data.json", `${JSON.stringify({
   scope: "Private and public repositories accessible to the token; forks and archived repositories are excluded. Repository names and source code are intentionally omitted.",
   repositoriesAnalyzed: repositories.length,
   publicRepositoriesAnalyzed: publicRepositories.length,
+  excludedLanguages: [...excludedLanguages],
   contributionsLastYear: {
     total: contributions.contributionCalendar.totalContributions,
     commits: contributions.totalCommitContributions,
   },
-  totals: Object.fromEntries([...languages.entries()].sort((a, b) => b[1] - a[1])),
+  totals: Object.fromEntries(chartLanguages.sort((a, b) => b[1] - a[1])),
+  excludedTotals: Object.fromEntries([...languages.entries()].filter(([language]) => excludedLanguages.has(language)).sort((a, b) => b[1] - a[1])),
 }, null, 2)}\n`);
