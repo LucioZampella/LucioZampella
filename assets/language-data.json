@@ -1,0 +1,88 @@
+{
+  "generatedAt": "2026-10-23T13:40:39.464Z",
+  "username": "LucioZampella",
+  "scope": "Public repositories owned by the user; forks and archived repositories are excluded.",
+  "totals": {
+    "JavaScript": 288475,
+    "Java": 196234,
+    "Python": 60802,
+    "C++": 27451,
+    "CMake": 19776,
+    "Dart": 18535,
+    "HTML": 7429,
+    "TypeScript": 2805,
+    "Swift": 2036,
+    "C": 1488,
+    "CSS": 352,
+    "Kotlin": 137,
+    "Objective-C": 38
+  },
+  "repositories": [
+    {
+      "name": "LucioZampella",
+      "url": "https://github.com/LucioZampella/LucioZampella",
+      "languages": {
+        "JavaScript": 5635
+      }
+    },
+    {
+      "name": "Los-Grand-Schmidt-Tool",
+      "url": "https://github.com/LucioZampella/Los-Grand-Schmidt-Tool",
+      "languages": {
+        "Java": 18504,
+        "HTML": 5518,
+        "JavaScript": 1258
+      }
+    },
+    {
+      "name": "frontend-capacitation-flutter-android-app",
+      "url": "https://github.com/LucioZampella/frontend-capacitation-flutter-android-app",
+      "languages": {
+        "C++": 25212,
+        "CMake": 19776,
+        "Dart": 18535,
+        "Swift": 2036,
+        "HTML": 1551,
+        "C": 1488,
+        "Kotlin": 137,
+        "Objective-C": 38
+      }
+    },
+    {
+      "name": "backend-capacitation-api-rest-prisma-postgres",
+      "url": "https://github.com/LucioZampella/backend-capacitation-api-rest-prisma-postgres",
+      "languages": {
+        "TypeScript": 2805
+      }
+    },
+    {
+      "name": "Opet-Virtual-Wardrobe",
+      "url": "https://github.com/LucioZampella/Opet-Virtual-Wardrobe",
+      "languages": {
+        "JavaScript": 281582,
+        "Java": 177730,
+        "HTML": 360,
+        "CSS": 352
+      }
+    },
+    {
+      "name": "F1Emulator",
+      "url": "https://github.com/LucioZampella/F1Emulator",
+      "languages": {
+        "Python": 60802
+      }
+    },
+    {
+      "name": "pointsSystem",
+      "url": "https://github.com/LucioZampella/pointsSystem",
+      "languages": {}
+    },
+    {
+      "name": "PulsoraEI",
+      "url": "https://github.com/LucioZampella/PulsoraEI",
+      "languages": {
+        "C++": 2239
+      }
+    }
+  ]
+}

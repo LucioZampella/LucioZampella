@@ -1,22 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="245" viewBox="0 0 900 245" role="img" aria-labelledby="title description">
   <title id="title">GitHub profile overview</title>
-  <desc id="description">Public repository overview for LucioZampella, generated on 2026-10-23.</desc>
+  <desc id="description">Public repository overview for LucioZampella, including 101 commits authored by this user, generated on 2026-10-23.</desc>
   <style>
     .title { font: 700 25px Arial, sans-serif; fill: #97FF5B; }
     .subtitle { font: 14px Arial, sans-serif; fill: #E4E4E4; opacity: .75; }
-    .metric { font: 700 38px Arial, sans-serif; fill: #97FF5B; }
-    .label { font: 600 13px Arial, sans-serif; fill: #E4E4E4; letter-spacing: 1px; }
+    .metric { font: 700 32px Arial, sans-serif; fill: #97FF5B; }
+    .label { font: 600 11px Arial, sans-serif; fill: #E4E4E4; letter-spacing: 1px; }
     .detail { font: 12px Arial, sans-serif; fill: #E4E4E4; opacity: .68; }
   </style>
   <rect width="900" height="245" rx="18" fill="#444444"/>
   <text x="38" y="52" class="title">GITHUB OVERVIEW</text>
   <text x="38" y="78" class="subtitle">Public work by LucioZampella · refreshed daily</text>
-  <rect x="38" y="108" width="194" height="103" rx="12" fill="#515151"/>
-  <rect x="251" y="108" width="194" height="103" rx="12" fill="#515151"/>
-  <rect x="464" y="108" width="194" height="103" rx="12" fill="#515151"/>
-  <rect x="677" y="108" width="185" height="103" rx="12" fill="#515151"/>
+  <rect x="38" y="108" width="156" height="103" rx="12" fill="#515151"/>
+  <rect x="205" y="108" width="156" height="103" rx="12" fill="#515151"/>
+  <rect x="372" y="108" width="156" height="103" rx="12" fill="#515151"/>
+  <rect x="539" y="108" width="156" height="103" rx="12" fill="#515151"/>
+  <rect x="706" y="108" width="156" height="103" rx="12" fill="#515151"/>
   <text x="58" y="153" class="metric">8</text><text x="58" y="181" class="label">REPOSITORIES</text>
-  <text x="271" y="153" class="metric">13</text><text x="271" y="181" class="label">LANGUAGES</text>
-  <text x="484" y="153" class="metric">0</text><text x="484" y="181" class="label">STARS</text>
-  <text x="697" y="153" class="metric">0</text><text x="697" y="181" class="label">FORKS</text>
+  <text x="225" y="153" class="metric">101</text><text x="225" y="181" class="label">COMMITS</text>
+  <text x="392" y="153" class="metric">13</text><text x="392" y="181" class="label">LANGUAGES</text>
+  <text x="559" y="153" class="metric">0</text><text x="559" y="181" class="label">STARS</text>
+  <text x="726" y="153" class="metric">0</text><text x="726" y="181" class="label">FORKS</text>
 </svg>

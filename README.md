@@ -36,6 +36,10 @@ My interests span software, technology, hard sciences, and the point where engin
   <sub>Updated daily from your public GitHub repositories · ranking reflects repository composition, not proficiency.</sub>
 </div>
 
+<div align="center">
+  <sub><a href="./assets/language-data.json">View the source data by repository</a></sub>
+</div>
+
 ---
 
 <div align="center">

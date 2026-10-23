@@ -9,8 +9,13 @@ const headers = {
   ...(token ? { Authorization: `Bearer ${token}` } : {}),
 };
 
-async function github(path) {
+async function githubResponse(path) {
   const response = await fetch(`https://api.github.com${path}`, { headers });
+  return response;
+}
+
+async function github(path) {
+  const response = await githubResponse(path);
   if (!response.ok) throw new Error(`GitHub API ${response.status}: ${path}`);
   return response.json();
 }
@@ -34,15 +39,27 @@ function formatBytes(bytes) {
   return `${(bytes / 1024 ** 2).toFixed(1)} MB`;
 }
 
+async function authoredCommitCount(repository) {
+  const path = `/repos/${encodeURIComponent(username)}/${encodeURIComponent(repository.name)}/commits?author=${encodeURIComponent(username)}&per_page=1`;
+  const response = await githubResponse(path);
+  if (response.status === 409) return 0;
+  if (!response.ok) throw new Error(`GitHub API ${response.status}: ${path}`);
+  const lastPage = /[?&]page=(\d+)>; rel="last"/.exec(response.headers.get("link") || "")?.[1];
+  if (lastPage) return Number(lastPage);
+  return (await response.json()).length;
+}
+
 const repositories = (await allRepositories()).filter((repo) => !repo.fork && !repo.archived);
 const languages = new Map();
 
-await Promise.all(repositories.map(async (repo) => {
+const languageSources = await Promise.all(repositories.map(async (repo) => {
   const data = await github(`/repos/${encodeURIComponent(username)}/${encodeURIComponent(repo.name)}/languages`);
   for (const [language, bytes] of Object.entries(data)) {
     languages.set(language, (languages.get(language) || 0) + bytes);
   }
+  return { name: repo.name, url: repo.html_url, languages: data };
 }));
+const authoredCommits = (await Promise.all(repositories.map(authoredCommitCount))).reduce((sum, count) => sum + count, 0);
 
 const top = [...languages.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10);
 const total = [...languages.values()].reduce((sum, bytes) => sum + bytes, 0);
@@ -75,27 +92,36 @@ const forks = repositories.reduce((sum, repository) => sum + repository.forks_co
 const updated = new Date().toISOString().slice(0, 10);
 const overviewSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="245" viewBox="0 0 900 245" role="img" aria-labelledby="title description">
   <title id="title">GitHub profile overview</title>
-  <desc id="description">Public repository overview for ${escapeXml(username)}, generated on ${updated}.</desc>
+  <desc id="description">Public repository overview for ${escapeXml(username)}, including ${authoredCommits} commits authored by this user, generated on ${updated}.</desc>
   <style>
     .title { font: 700 25px Arial, sans-serif; fill: #97FF5B; }
     .subtitle { font: 14px Arial, sans-serif; fill: #E4E4E4; opacity: .75; }
-    .metric { font: 700 38px Arial, sans-serif; fill: #97FF5B; }
-    .label { font: 600 13px Arial, sans-serif; fill: #E4E4E4; letter-spacing: 1px; }
+    .metric { font: 700 32px Arial, sans-serif; fill: #97FF5B; }
+    .label { font: 600 11px Arial, sans-serif; fill: #E4E4E4; letter-spacing: 1px; }
     .detail { font: 12px Arial, sans-serif; fill: #E4E4E4; opacity: .68; }
   </style>
   <rect width="900" height="245" rx="18" fill="#444444"/>
   <text x="38" y="52" class="title">GITHUB OVERVIEW</text>
   <text x="38" y="78" class="subtitle">Public work by ${escapeXml(username)} · refreshed daily</text>
-  <rect x="38" y="108" width="194" height="103" rx="12" fill="#515151"/>
-  <rect x="251" y="108" width="194" height="103" rx="12" fill="#515151"/>
-  <rect x="464" y="108" width="194" height="103" rx="12" fill="#515151"/>
-  <rect x="677" y="108" width="185" height="103" rx="12" fill="#515151"/>
+  <rect x="38" y="108" width="156" height="103" rx="12" fill="#515151"/>
+  <rect x="205" y="108" width="156" height="103" rx="12" fill="#515151"/>
+  <rect x="372" y="108" width="156" height="103" rx="12" fill="#515151"/>
+  <rect x="539" y="108" width="156" height="103" rx="12" fill="#515151"/>
+  <rect x="706" y="108" width="156" height="103" rx="12" fill="#515151"/>
   <text x="58" y="153" class="metric">${repositories.length}</text><text x="58" y="181" class="label">REPOSITORIES</text>
-  <text x="271" y="153" class="metric">${languages.size}</text><text x="271" y="181" class="label">LANGUAGES</text>
-  <text x="484" y="153" class="metric">${stars}</text><text x="484" y="181" class="label">STARS</text>
-  <text x="697" y="153" class="metric">${forks}</text><text x="697" y="181" class="label">FORKS</text>
+  <text x="225" y="153" class="metric">${authoredCommits}</text><text x="225" y="181" class="label">COMMITS</text>
+  <text x="392" y="153" class="metric">${languages.size}</text><text x="392" y="181" class="label">LANGUAGES</text>
+  <text x="559" y="153" class="metric">${stars}</text><text x="559" y="181" class="label">STARS</text>
+  <text x="726" y="153" class="metric">${forks}</text><text x="726" y="181" class="label">FORKS</text>
 </svg>`;
 
 mkdirSync("assets", { recursive: true });
 writeFileSync("assets/github-languages.svg", languagesSvg);
 writeFileSync("assets/github-overview.svg", overviewSvg);
+writeFileSync("assets/language-data.json", `${JSON.stringify({
+  generatedAt: new Date().toISOString(),
+  username,
+  scope: "Public repositories owned by the user; forks and archived repositories are excluded.",
+  totals: Object.fromEntries([...languages.entries()].sort((a, b) => b[1] - a[1])),
+  repositories: languageSources,
+}, null, 2)}\n`);
