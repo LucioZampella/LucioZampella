@@ -21,6 +21,7 @@ jobs:
       - name: Build language chart from GitHub repository data
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PROFILE_STATS_TOKEN: ${{ secrets.PROFILE_STATS_TOKEN }}
           GITHUB_USERNAME: LucioZampella
         run: node scripts/generate-language-chart.mjs
 

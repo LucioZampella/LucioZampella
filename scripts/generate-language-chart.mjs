@@ -2,9 +2,10 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname } from "node:path";
 
 const username = process.env.GITHUB_USERNAME || "LucioZampella";
-const token = process.env.GITHUB_TOKEN;
+const token = process.env.PROFILE_STATS_TOKEN || process.env.GITHUB_TOKEN;
 const headers = {
   Accept: "application/vnd.github+json",
+  "Content-Type": "application/json",
   "User-Agent": "github-profile-language-chart",
   ...(token ? { Authorization: `Bearer ${token}` } : {}),
 };
@@ -39,14 +40,30 @@ function formatBytes(bytes) {
   return `${(bytes / 1024 ** 2).toFixed(1)} MB`;
 }
 
-async function authoredCommitCount(repository) {
-  const path = `/repos/${encodeURIComponent(username)}/${encodeURIComponent(repository.name)}/commits?author=${encodeURIComponent(username)}&per_page=1`;
-  const response = await githubResponse(path);
-  if (response.status === 409) return 0;
-  if (!response.ok) throw new Error(`GitHub API ${response.status}: ${path}`);
-  const lastPage = /[?&]page=(\d+)>; rel="last"/.exec(response.headers.get("link") || "")?.[1];
-  if (lastPage) return Number(lastPage);
-  return (await response.json()).length;
+async function contributionStats() {
+  const to = new Date();
+  const from = new Date(to);
+  from.setUTCFullYear(from.getUTCFullYear() - 1);
+  const response = await fetch("https://api.github.com/graphql", {
+    method: "POST",
+    headers,
+    body: JSON.stringify({
+      query: `query ($login: String!, $from: DateTime!, $to: DateTime!) {
+        user(login: $login) {
+          contributionsCollection(from: $from, to: $to) {
+            totalCommitContributions
+            contributionCalendar { totalContributions }
+          }
+        }
+      }`,
+      variables: { login: username, from: from.toISOString(), to: to.toISOString() },
+    }),
+  });
+  const payload = await response.json();
+  if (!response.ok || payload.errors || !payload.data?.user) {
+    throw new Error(`GitHub GraphQL: ${payload.errors?.map(({ message }) => message).join(", ") || response.status}`);
+  }
+  return payload.data.user.contributionsCollection;
 }
 
 const repositories = (await allRepositories()).filter((repo) => !repo.fork && !repo.archived);
@@ -59,7 +76,7 @@ const languageSources = await Promise.all(repositories.map(async (repo) => {
   }
   return { name: repo.name, url: repo.html_url, languages: data };
 }));
-const authoredCommits = (await Promise.all(repositories.map(authoredCommitCount))).reduce((sum, count) => sum + count, 0);
+const contributions = await contributionStats();
 
 const top = [...languages.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10);
 const total = [...languages.values()].reduce((sum, bytes) => sum + bytes, 0);
@@ -92,7 +109,7 @@ const forks = repositories.reduce((sum, repository) => sum + repository.forks_co
 const updated = new Date().toISOString().slice(0, 10);
 const overviewSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height="245" viewBox="0 0 900 245" role="img" aria-labelledby="title description">
   <title id="title">GitHub profile overview</title>
-  <desc id="description">Public repository overview for ${escapeXml(username)}, including ${authoredCommits} commits authored by this user, generated on ${updated}.</desc>
+  <desc id="description">GitHub overview for ${escapeXml(username)}, including ${contributions.contributionCalendar.totalContributions} contributions over the last 12 months, generated on ${updated}.</desc>
   <style>
     .title { font: 700 25px Arial, sans-serif; fill: #97FF5B; }
     .subtitle { font: 14px Arial, sans-serif; fill: #E4E4E4; opacity: .75; }
@@ -109,7 +126,7 @@ const overviewSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="900" height=
   <rect x="539" y="108" width="156" height="103" rx="12" fill="#515151"/>
   <rect x="706" y="108" width="156" height="103" rx="12" fill="#515151"/>
   <text x="58" y="153" class="metric">${repositories.length}</text><text x="58" y="181" class="label">REPOSITORIES</text>
-  <text x="225" y="153" class="metric">${authoredCommits}</text><text x="225" y="181" class="label">COMMITS</text>
+  <text x="225" y="153" class="metric">${contributions.contributionCalendar.totalContributions}</text><text x="225" y="181" class="label">CONTRIBUTIONS · 1Y</text>
   <text x="392" y="153" class="metric">${languages.size}</text><text x="392" y="181" class="label">LANGUAGES</text>
   <text x="559" y="153" class="metric">${stars}</text><text x="559" y="181" class="label">STARS</text>
   <text x="726" y="153" class="metric">${forks}</text><text x="726" y="181" class="label">FORKS</text>
@@ -122,6 +139,10 @@ writeFileSync("assets/language-data.json", `${JSON.stringify({
   generatedAt: new Date().toISOString(),
   username,
   scope: "Public repositories owned by the user; forks and archived repositories are excluded.",
+  contributionsLastYear: {
+    total: contributions.contributionCalendar.totalContributions,
+    commits: contributions.totalCommitContributions,
+  },
   totals: Object.fromEntries([...languages.entries()].sort((a, b) => b[1] - a[1])),
   repositories: languageSources,
 }, null, 2)}\n`);
