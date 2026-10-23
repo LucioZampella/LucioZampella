@@ -1,6 +1,10 @@
 name: Update language chart
 
 on:
+  push:
+    paths:
+      - "scripts/generate-language-chart.mjs"
+      - ".github/workflows/generate-metrics.yml"
   schedule:
     - cron: "23 04 * * *"
   workflow_dispatch:
