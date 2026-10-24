@@ -14,7 +14,7 @@
 
 <p>
   <a href="https://www.linkedin.com/in/lucio-zampella-b18a022a4/">
-    <img src="https://img.shields.io/badge/LINKEDIN-VISIT%20LUCIO%20ZAMPELLA'S%20PROFILE-444444?style=for-the-badge&labelColor=444444&color=97FF5B" alt="Visit Lucio Zampella's LinkedIn profile" />
+    <img src="https://img.shields.io/badge/LINKEDIN-VISIT%20MY%20PROFILE%21-444444?style=for-the-badge&labelColor=0A66C2&color=97FF5B&logo=linkedin&logoColor=white" alt="Visit my LinkedIn profile" />
   </a>
 </p>
 
