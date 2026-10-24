@@ -2,14 +2,20 @@
 
 # Lucio Zampella
 
-### Computer Engineering student · Designer · Problem solver
+### Software Engineering student · Designer · Problem solver
 
 <p>
   Building at the intersection of <b>technology</b>, <b>hard sciences</b>, and <b>visual design</b>.
 </p>
 
 <p>
-  <img src="https://img.shields.io/badge/COMPUTER%20ENGINEERING-UNIVERSIDAD%20AUSTRAL-444444?style=for-the-badge&labelColor=444444&color=97FF5B" alt="Computer Engineering — Universidad Austral" />
+  <img src="https://img.shields.io/badge/SOFTWARE%20ENGINEERING-UNIVERSIDAD%20AUSTRAL-444444?style=for-the-badge&labelColor=444444&color=97FF5B" alt="Software Engineering — Universidad Austral" />
+</p>
+
+<p>
+  <a href="https://www.linkedin.com/in/lucio-zampella-b18a022a4/">
+    <img src="https://img.shields.io/badge/LINKEDIN-VISIT%20LUCIO%20ZAMPELLA'S%20PROFILE-444444?style=for-the-badge&labelColor=444444&color=97FF5B" alt="Visit Lucio Zampella's LinkedIn profile" />
+  </a>
 </p>
 
 </div>
@@ -18,7 +24,7 @@
 
 ## About me
 
-I am Lucio, a Computer Engineering student at **Universidad Austral** and a designer who works with tools such as **Photoshop**. I enjoy turning complex problems into clear, useful, and well-crafted solutions.
+I am Lucio, a Software Engineering student at **Universidad Austral** and a designer who works with tools such as **Photoshop**. I enjoy turning complex problems into clear, useful, and well-crafted solutions.
 
 My interests span software, technology, hard sciences, and the point where engineering meets visual communication.
 
