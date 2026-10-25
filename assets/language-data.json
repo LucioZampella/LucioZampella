@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T08:55:38.144Z",
+  "generatedAt": "2026-10-25T09:12:33.347Z",
   "username": "LucioZampella",
   "scope": "Private and public repositories accessible to the token; forks and archived repositories are excluded. Repository names and source code are intentionally omitted.",
   "repositoriesAnalyzed": 39,
@@ -35,7 +35,7 @@
     "Dart": 1420661,
     "TypeScript": 829807,
     "JavaScript": 615910,
-    "Java": 572772,
+    "Java": 595540,
     "Kotlin": 332719,
     "Python": 116769,
     "EJS": 81236,
