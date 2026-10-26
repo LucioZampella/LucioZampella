@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="245" viewBox="0 0 900 245" role="img" aria-labelledby="title description">
   <title id="title">GitHub profile overview</title>
-  <desc id="description">GitHub overview for LucioZampella, including 933 contributions over the last 12 months, generated on 2026-10-25.</desc>
+  <desc id="description">GitHub overview for LucioZampella, including 927 contributions over the last 12 months, generated on 2026-10-26.</desc>
   <style>
     .title { font: 700 25px Arial, sans-serif; fill: #97FF5B; }
     .subtitle { font: 14px Arial, sans-serif; fill: #E4E4E4; opacity: .75; }
@@ -17,7 +17,7 @@
   <rect x="539" y="108" width="156" height="103" rx="12" fill="#515151"/>
   <rect x="706" y="108" width="156" height="103" rx="12" fill="#515151"/>
   <text x="58" y="153" class="metric">21</text><text x="58" y="181" class="label">PUBLIC REPOS</text>
-  <text x="225" y="153" class="metric">933</text><text x="225" y="181" class="label">CONTRIBUTIONS · 1Y</text>
+  <text x="225" y="153" class="metric">927</text><text x="225" y="181" class="label">CONTRIBUTIONS · 1Y</text>
   <text x="392" y="153" class="metric">14</text><text x="392" y="181" class="label">LANGUAGES · CODE</text>
   <text x="559" y="153" class="metric">2</text><text x="559" y="181" class="label">STARS</text>
   <text x="726" y="153" class="metric">0</text><text x="726" y="181" class="label">FORKS</text>
