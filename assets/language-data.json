@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-27T09:52:02.756Z",
+  "generatedAt": "2026-10-28T10:38:37.108Z",
   "username": "LucioZampella",
   "scope": "Private and public repositories accessible to the token; forks and archived repositories are excluded. Repository names and source code are intentionally omitted.",
-  "repositoriesAnalyzed": 39,
-  "publicRepositoriesAnalyzed": 21,
+  "repositoriesAnalyzed": 40,
+  "publicRepositoriesAnalyzed": 22,
   "excludedLanguages": [
     "Jupyter Notebook",
     "GDScript",
@@ -28,30 +28,30 @@
     "HCL"
   ],
   "contributionsLastYear": {
-    "total": 930,
-    "commits": 741
+    "total": 952,
+    "commits": 754
   },
   "totals": {
-    "Dart": 1522135,
-    "TypeScript": 829807,
+    "Dart": 1658537,
+    "TypeScript": 853293,
     "JavaScript": 615910,
     "Java": 595540,
     "Kotlin": 348084,
     "Python": 116769,
     "EJS": 81236,
-    "C++": 54756,
+    "C++": 54923,
     "Go": 35780,
-    "Swift": 4524,
+    "Swift": 4771,
     "C": 3013,
     "PLpgSQL": 1635,
-    "PostScript": 763,
+    "PostScript": 759,
     "Objective-C": 77
   },
   "excludedTotals": {
     "Jupyter Notebook": 19482094,
     "GDScript": 746397,
     "HTML": 614133,
-    "CMake": 40127,
+    "CMake": 40143,
     "Shell": 25573,
     "CSS": 18790,
     "Dockerfile": 2185
