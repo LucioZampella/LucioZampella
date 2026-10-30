@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T10:56:25.106Z",
+  "generatedAt": "2026-10-30T10:54:21.405Z",
   "username": "LucioZampella",
   "scope": "Private and public repositories accessible to the token; forks and archived repositories are excluded. Repository names and source code are intentionally omitted.",
   "repositoriesAnalyzed": 40,
@@ -28,7 +28,7 @@
     "HCL"
   ],
   "contributionsLastYear": {
-    "total": 949,
+    "total": 948,
     "commits": 752
   },
   "totals": {
@@ -44,6 +44,7 @@
     "Swift": 4771,
     "C": 3013,
     "PLpgSQL": 1635,
+    "C#": 1026,
     "PostScript": 759,
     "Objective-C": 77
   },
