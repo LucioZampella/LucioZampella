@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T11:20:57.624Z",
+  "generatedAt": "2026-11-09T12:59:07.916Z",
   "username": "LucioZampella",
   "scope": "Private and public repositories accessible to the token; forks and archived repositories are excluded. Repository names and source code are intentionally omitted.",
   "repositoriesAnalyzed": 40,
@@ -36,7 +36,7 @@
     "TypeScript": 857377,
     "JavaScript": 616553,
     "Java": 599393,
-    "Kotlin": 362421,
+    "Kotlin": 420746,
     "Python": 116769,
     "EJS": 81236,
     "C++": 54923,
@@ -55,6 +55,6 @@
     "CMake": 40143,
     "Shell": 38526,
     "CSS": 19278,
-    "Dockerfile": 3031
+    "Dockerfile": 3524
   }
 }
