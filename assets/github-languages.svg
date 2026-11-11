@@ -14,18 +14,18 @@
   <text x="38" y="127" class="label">Dart</text>
   <rect x="230" y="112" width="430" height="18" rx="9" class="track"/>
   <rect x="230" y="112" width="430" height="18" rx="9" fill="#97FF5B"/>
-  <text x="690" y="127" class="value">38.7% · 1.7 MB</text>
+  <text x="690" y="127" class="value">38.9% · 1.7 MB</text>
   <text x="38" y="158" class="label">TypeScript</text>
   <rect x="230" y="143" width="430" height="18" rx="9" class="track"/>
-  <rect x="230" y="143" width="209" height="18" rx="9" fill="#b5ff8a"/>
-  <text x="690" y="158" class="value">18.8% · 837.3 KB</text>
+  <rect x="230" y="143" width="207" height="18" rx="9" fill="#b5ff8a"/>
+  <text x="690" y="158" class="value">18.7% · 837.3 KB</text>
   <text x="38" y="189" class="label">JavaScript</text>
   <rect x="230" y="174" width="430" height="18" rx="9" class="track"/>
-  <rect x="230" y="174" width="150" height="18" rx="9" fill="#d5ffba"/>
+  <rect x="230" y="174" width="149" height="18" rx="9" fill="#d5ffba"/>
   <text x="690" y="189" class="value">13.5% · 602.1 KB</text>
   <text x="38" y="220" class="label">Java</text>
   <rect x="230" y="205" width="430" height="18" rx="9" class="track"/>
-  <rect x="230" y="205" width="146" height="18" rx="9" fill="#e4e4e4"/>
+  <rect x="230" y="205" width="145" height="18" rx="9" fill="#e4e4e4"/>
   <text x="690" y="220" class="value">13.1% · 585.3 KB</text>
   <text x="38" y="251" class="label">Kotlin</text>
   <rect x="230" y="236" width="430" height="18" rx="9" class="track"/>
