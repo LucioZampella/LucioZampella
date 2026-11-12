@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T11:55:58.259Z",
+  "generatedAt": "2026-11-12T12:51:13.183Z",
   "username": "LucioZampella",
   "scope": "Private and public repositories accessible to the token; forks and archived repositories are excluded. Repository names and source code are intentionally omitted.",
   "repositoriesAnalyzed": 40,
@@ -35,8 +35,8 @@
     "Dart": 1781383,
     "TypeScript": 857377,
     "JavaScript": 616553,
-    "Java": 599393,
-    "Kotlin": 420746,
+    "Java": 572772,
+    "Kotlin": 542470,
     "Python": 116769,
     "EJS": 81236,
     "C++": 54923,
@@ -53,8 +53,8 @@
     "GDScript": 746397,
     "HTML": 614133,
     "CMake": 40143,
-    "Shell": 38526,
+    "Shell": 39401,
     "CSS": 19278,
-    "Dockerfile": 3524
+    "Dockerfile": 3773
   }
 }
