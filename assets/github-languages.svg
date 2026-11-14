@@ -14,23 +14,23 @@
   <text x="38" y="127" class="label">Dart</text>
   <rect x="230" y="112" width="430" height="18" rx="9" class="track"/>
   <rect x="230" y="112" width="430" height="18" rx="9" fill="#97FF5B"/>
-  <text x="690" y="127" class="value">38.3% · 1.7 MB</text>
+  <text x="690" y="127" class="value">38.0% · 1.7 MB</text>
   <text x="38" y="158" class="label">TypeScript</text>
   <rect x="230" y="143" width="430" height="18" rx="9" class="track"/>
   <rect x="230" y="143" width="205" height="18" rx="9" fill="#b5ff8a"/>
-  <text x="690" y="158" class="value">18.3% · 837.3 KB</text>
+  <text x="690" y="158" class="value">18.1% · 837.3 KB</text>
   <text x="38" y="189" class="label">JavaScript</text>
   <rect x="230" y="174" width="430" height="18" rx="9" class="track"/>
   <rect x="230" y="174" width="148" height="18" rx="9" fill="#d5ffba"/>
-  <text x="690" y="189" class="value">13.2% · 602.1 KB</text>
-  <text x="38" y="220" class="label">Java</text>
+  <text x="690" y="189" class="value">13.1% · 602.1 KB</text>
+  <text x="38" y="220" class="label">Kotlin</text>
   <rect x="230" y="205" width="430" height="18" rx="9" class="track"/>
-  <rect x="230" y="205" width="137" height="18" rx="9" fill="#e4e4e4"/>
-  <text x="690" y="220" class="value">12.2% · 559.3 KB</text>
-  <text x="38" y="251" class="label">Kotlin</text>
+  <rect x="230" y="205" width="139" height="18" rx="9" fill="#e4e4e4"/>
+  <text x="690" y="220" class="value">12.3% · 566.6 KB</text>
+  <text x="38" y="251" class="label">Java</text>
   <rect x="230" y="236" width="430" height="18" rx="9" class="track"/>
-  <rect x="230" y="236" width="130" height="18" rx="9" fill="#9ca3a0"/>
-  <text x="690" y="251" class="value">11.6% · 529.8 KB</text>
+  <rect x="230" y="236" width="137" height="18" rx="9" fill="#9ca3a0"/>
+  <text x="690" y="251" class="value">12.1% · 559.3 KB</text>
   <text x="38" y="282" class="label">Python</text>
   <rect x="230" y="267" width="430" height="18" rx="9" class="track"/>
   <rect x="230" y="267" width="28" height="18" rx="9" fill="#7a817d"/>
