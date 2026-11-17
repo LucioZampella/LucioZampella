@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T12:51:21.213Z",
+  "generatedAt": "2026-11-17T13:33:38.957Z",
   "username": "LucioZampella",
   "scope": "Private and public repositories accessible to the token; forks and archived repositories are excluded. Repository names and source code are intentionally omitted.",
   "repositoriesAnalyzed": 40,
@@ -28,14 +28,14 @@
     "HCL"
   ],
   "contributionsLastYear": {
-    "total": 1017,
-    "commits": 808
+    "total": 1057,
+    "commits": 820
   },
   "totals": {
     "Dart": 1797059,
+    "Kotlin": 954912,
     "TypeScript": 857377,
     "JavaScript": 616553,
-    "Kotlin": 593106,
     "Java": 572772,
     "Python": 116769,
     "EJS": 81236,
@@ -52,7 +52,7 @@
     "Jupyter Notebook": 19482094,
     "GDScript": 746397,
     "HTML": 614133,
-    "Shell": 41204,
+    "Shell": 42048,
     "CMake": 40143,
     "CSS": 19278,
     "Dockerfile": 3773
