@@ -30,7 +30,7 @@
   <text x="38" y="251" class="label">Java</text>
   <rect x="230" y="236" width="430" height="18" rx="9" class="track"/>
   <rect x="230" y="236" width="137" height="18" rx="9" fill="#9ca3a0"/>
-  <text x="690" y="251" class="value">11.2% · 559.3 KB</text>
+  <text x="690" y="251" class="value">11.2% · 559.4 KB</text>
   <text x="38" y="282" class="label">Python</text>
   <rect x="230" y="267" width="430" height="18" rx="9" class="track"/>
   <rect x="230" y="267" width="28" height="18" rx="9" fill="#7a817d"/>
